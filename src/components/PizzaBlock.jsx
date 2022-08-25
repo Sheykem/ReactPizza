@@ -2,7 +2,7 @@ import React from 'react';
 
 function PizzaBlock({ title, price, imageUrl, sizes, types }) {
   const [activeType, setActiveType] = React.useState(0); // переключение по тесту
-  const [activeSize, setActiveSize] = React.useState(0); // переключение по размеру пиццы 
+  const [activeSize, setActiveSize] = React.useState(0); // переключение по размеру пиццы
   const typesNames = ['тонкое', 'традиционное']; // отображение видов теста
 
   return (
@@ -13,6 +13,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
         <ul>
           {types.map((typeIndex) => (
             <li
+              key={typeIndex}
               onClick={() => setActiveType(typeIndex)}
               className={activeType == typeIndex ? 'active' : ''}>
               {typesNames[typeIndex]}.
@@ -22,6 +23,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
         <ul>
           {sizes.map((size, index) => (
             <li
+              key={index}
               onClick={() => setActiveSize(index)}
               className={activeSize == index ? 'active' : ''}>
               {size} см.
